@@ -1,0 +1,10 @@
+{
+  "name": "hopin-test-automation-challenge",
+  "version": "1.0.0",
+  "description": "Automation Challenge",
+  "main": "index.js",
+  "author": "Yugandhar Prasad Potti",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["frontend", "backend"]
+}
