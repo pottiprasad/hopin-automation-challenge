@@ -13,7 +13,8 @@
   "scripts": {
     "start:frontend": "yarn workspace frontend run start",
     "start:backend": "yarn workspace backend run start",
-    "stop:apps": "(lsof -ti:3000,3001) | xargs kill >/dev/null"
+    "stop:apps": "(lsof -ti:3000,3001) | xargs kill >/dev/null",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
