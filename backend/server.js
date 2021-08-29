@@ -53,7 +53,7 @@ const database = {
 const getSize = (customer) => {
   return customer.employees <= 100
     ? "Small"
-    : customer.employees < 1000
+    : (customer.employees > 10 && customer.employees <= 1000)
     ? "Medium"
     : "Big";
 };
