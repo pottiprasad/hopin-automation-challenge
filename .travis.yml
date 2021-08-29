@@ -10,9 +10,4 @@ addons:
   firefox: latest
   chrome: stable
 
-before_script:
-  - yarn start:backend
-  - sleep 2 # give backend service some time to start
-
-scirpt: 
-  - yarn tests:backend
+scirpt: yarn tests:backend

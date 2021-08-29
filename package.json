@@ -13,7 +13,7 @@
   "scripts": {
     "start:frontend": "yarn workspace frontend run start",
     "start:backend": "yarn workspace backend run start",
-    "tests:backend": "testcafe chrome:headless tests/api-tests/"
+    "tests:backend": "yarn start:backend & testcafe chrome:headless tests/api-tests/"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
