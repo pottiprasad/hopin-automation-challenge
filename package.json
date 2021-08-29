@@ -14,7 +14,8 @@
     "start:frontend": "yarn workspace frontend run start",
     "start:backend": "yarn workspace backend run start",
     "tests:frontend": "yarn start:frontend & yarn start:backend & testcafe chrome:headless,firefox:headless tests/ui-tests/",
-    "tests:backend": "testcafe chrome:headless tests/api-tests/"
+    "tests:backend": "testcafe chrome:headless tests/api-tests/",
+    "tests:backend:local": "yarn start:backend & testcafe chrome:headless tests/api-tests/"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

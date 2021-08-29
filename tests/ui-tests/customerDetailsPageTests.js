@@ -23,13 +23,7 @@ fixture`Customer details screen`.page`${url}`.beforeEach(async (t) => {
   await customersListPage.customersListTable.with({ visibilityCheck: true })();
 });
 
-/**
- * I've added requests hooks at test level,
- * now it is intercepting calls and overriding response data.
- * if you want to see the same test run in E2E,
- * please remove mock from the array in line no:32
- */
-test.requestHooks(requestLogger, mock)(
+test.requestHooks(requestLogger)(
   'I should see customer contacts details when I select a customer',
   async (t) => {
     const customerCount = await customersListPage.getCustomerCountFromUI();
