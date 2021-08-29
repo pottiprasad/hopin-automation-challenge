@@ -12,15 +12,13 @@ test("Verify schema and status code", async (t) => {
     name: customerAppUser,
   };
   const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
-  const schemaValidateResponse = getSchema("customer").validate(
-    response.data.customers
+  const schemaValidateResponse = getSchema("customers").validate(
+    response.data
   );
+  const isValidationFailed = schemaValidateResponse.error ? false : true
   await t
-    .expect(schemaValidateResponse)
-    .notContains(
-      { error: new RegExp(".*?") },
-      "Response not matched with schema"
-    )
+    .expect(isValidationFailed)
+    .ok("Response not matched with schema")
     .expect(response.status)
     .eql(200, `HTTP response code doesn't match - ${response.status}`);
 });

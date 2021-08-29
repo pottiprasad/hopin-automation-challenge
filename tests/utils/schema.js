@@ -9,15 +9,18 @@ const customerSchema = Joi.object().keys({
     email: Joi.string(),
   }).optional(),
   size: Joi.string().required(),
-  text: Joi.string().required(),
 });
 
-const customerArraySchema = Joi.array().items(customerSchema);
+const customersSchema = Joi.object().keys({
+  name: Joi.string().optional(),
+  timestamp: Joi.string().optional(),
+  customers: Joi.array().items(customerSchema),
+})
 
 const getSchema = (name) => {
   switch (name) {
-    case "customer":
-      return customerArraySchema;
+    case "customers":
+      return customersSchema;
   }
 };
 
