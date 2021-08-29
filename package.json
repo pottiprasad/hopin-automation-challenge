@@ -13,12 +13,13 @@
   "scripts": {
     "start:frontend": "yarn workspace frontend run start",
     "start:backend": "yarn workspace backend run start",
-    "stop:apps": "(lsof -ti:3000,3001) | xargs kill >/dev/null",
-    "test": "echo \"Error: no test specified\""
+    "tests:backend": "testcafe chrome:headless tests/api-tests/"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "axios": "^0.21.1",
     "config": "^3.3.6",
+    "joi": "^17.4.2",
     "prettier": "2.3.2",
     "testcafe": "^1.15.3"
   }
