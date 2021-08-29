@@ -1,5 +1,5 @@
 language: node_js
-node_js: "stable"
+node_js: 'stable'
 
 dist: bionic
 
@@ -10,4 +10,6 @@ addons:
   firefox: latest
   chrome: stable
 
-scirpt: yarn tests:backend
+scirpt: 
+  - yarn tests:frontend
+  - yarn tests:backend

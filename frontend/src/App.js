@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 const serverPort = 3001;
 const serverURL = `http://localhost:${serverPort}/`;
@@ -16,19 +16,19 @@ class CustomerApp extends Component {
   }
 
   async getCustomers() {
-    const userName = document.getElementById("name").value;
-    if (!userName || userName === "") {
-      alert("Please provide your name");
+    const userName = document.getElementById('name').value;
+    if (!userName || userName === '') {
+      alert('Please provide your name');
       return;
     }
 
-    const axios = require("axios");
+    const axios = require('axios');
     const server = axios.create({
       baseURL: serverURL,
     });
 
     try {
-      const response = await server.post("/", { name: userName });
+      const response = await server.post('/', { name: userName });
       const { name, timestamp, customers } = response.data;
       this.setState({ name, timestamp, customers });
     } catch (error) {
@@ -39,7 +39,7 @@ class CustomerApp extends Component {
   getContactText = () => {
     return this.state.customer.contactInfo
       ? `${this.state.customer.contactInfo.name} (${this.state.customer.contactInfo.email})`
-      : "No contact info available";
+      : 'No contact info available';
   };
 
   render() {
@@ -62,7 +62,7 @@ class CustomerApp extends Component {
         {this.state.name && (
           <div>
             <p id="greeting">
-              Hi <b>{this.state.name}</b>. It is now{" "}
+              Hi <b>{this.state.name}</b>. It is now{' '}
               <b>{this.state.timestamp}</b> and here is our customer list. Click
               on each of them to view their contact details.
             </p>

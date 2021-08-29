@@ -1,31 +1,29 @@
-import apiHelpers from "../utils/apiHelpers";
-import getSchema from "../utils/schema";
-import config from "config";
-
-const backendURL = config.get("backendURL");
-const customerAppUser = config.get("appUser");
+import apiHelpers from '../utils/apiHelpers';
+import getSchema from '../utils/schema';
+import config from 'config';
+import axios from 'axios';
+const backendURL = config.get('backendURL');
+const customerAppUser = config.get('appUser');
 
 fixture`Verify customer end point`;
 
-test("Verify schema and status code", async (t) => {
+test('Verify schema and status code', async (t) => {
   const body = {
     name: customerAppUser,
   };
   const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
-  const schemaValidateResponse = getSchema("customers").validate(
-    response.data
-  );
-  const isValidationFailed = schemaValidateResponse.error ? false : true
+  const schemaValidateResponse = getSchema('customers').validate(response.data);
+  const isValidationFailed = schemaValidateResponse.error ? false : true;
   await t
     .expect(isValidationFailed)
-    .ok("Response not matched with schema")
+    .ok('Response not matched with schema')
     .expect(response.status)
     .eql(200, `HTTP response code doesn't match - ${response.status}`);
 });
 
-test("Verify name and timestamp when I send correct variables in request body", async (t) => {
+test('Verify name and timestamp when I send correct variables in request body', async (t) => {
   const body = {
-    name: "customerAppUser",
+    name: 'customerAppUser',
   };
   const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
   await t
@@ -38,9 +36,9 @@ test("Verify name and timestamp when I send correct variables in request body", 
     .eql(new Date().toDateString(), `Time stamp not matched`);
 });
 
-test("Verify status code when I send incorrect name in the body", async (t) => {
+test('Verify status code when I send incorrect name in the body', async (t) => {
   const body = {
-    name: "£$%^& Prasad *($%^&*(",
+    name: '£$%^& Prasad *($%^&*(',
   };
   const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
   await t
@@ -48,9 +46,9 @@ test("Verify status code when I send incorrect name in the body", async (t) => {
     .eql(200, `HTTP response code doesn't match - ${response.status}`);
 });
 
-test("Verify size of the company based on employees count", async (t) => {
+test('Verify size of the company based on employees count', async (t) => {
   const body = {
-    name: "customerAppUser",
+    name: 'customerAppUser',
   };
   const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
   const customers = response.data.customers;
@@ -61,49 +59,49 @@ test("Verify size of the company based on employees count", async (t) => {
       await t
         .expect(customer.size)
         .eql(
-          "Small",
+          'Small',
           `${customer.name} has ${customer.employees} but size says ${customer.size}`
         );
     } else if (customer.employees > 10 && customer.employees <= 1000) {
       await t
         .expect(customer.size)
         .eql(
-          "Medium",
+          'Medium',
           `${customer.name} has ${customer.employees} but size says ${customer.size}`
         );
     } else {
       await t
         .expect(customer.size)
         .eql(
-          "Big",
+          'Big',
           `${customer.name} has ${customer.employees} but size says ${customer.size}`
         );
     }
   }
 });
 
-test("Verify status code when I send incorrect variables in request body", async (t) => {
+test('Verify status code when I send incorrect variables in request body', async (t) => {
+  let res;
   const body = {
-    test: "wrong variable",
+    test: 'wrong variable',
   };
-  const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
-  await t
-    .expect(response.status)
-    .eql(200, `HTTP response code doesn't match - ${response.status}`);
+  try {
+    res = await axios.post(backendURL, body);
+  } catch (err) {
+    await t
+      .expect(err.response.status)
+      .eql(400, `HTTP response code doesn't match`);
+  }
 });
 
-test("Verify status code when my request body is empty", async (t) => {
+test('Verify status code when my request body is empty', async (t) => {
+  let res;
   const body = {};
-  const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
-  await t
-    .expect(response.status)
-    .eql(200, `HTTP response code doesn't match - ${response.status}`);
-});
-
-test("I shouldn't see name in response when my request body is empty", async (t) => {
-  const body = {};
-  const response = await apiHelpers.makeAHTTPPostRequest(backendURL, body);
-  await t
-    .expect(response.data)
-    .notContains({ name: "" }, "Response data shouldn't contain name key ");
+  try {
+    res = await axios.post(backendURL, body);
+  } catch (err) {
+    await t
+      .expect(err.response.status)
+      .eql(400, `HTTP response code doesn't match`);
+  }
 });

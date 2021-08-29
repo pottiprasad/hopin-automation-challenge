@@ -1,5 +1,5 @@
-import { RequestMock, RequestLogger } from "testcafe";
-import axios from "axios";
+import { RequestMock, RequestLogger } from 'testcafe';
+import axios from 'axios';
 
 module.exports = {
   /**
@@ -10,11 +10,11 @@ module.exports = {
    */
   mockResponseFor(url, response) {
     return RequestMock().onRequestTo(url).respond(response, 200, {
-      "content-length": response.length,
-      "content-type": "application/json",
-      "access-control-allow-origin": "*",
-      "access-control-allow-headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
+      'content-length': response.length,
+      'content-type': 'application/json',
+      'access-control-allow-origin': '*',
+      'access-control-allow-headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
     });
   },
 
@@ -25,7 +25,7 @@ module.exports = {
    */
   getRequestLogger(url) {
     return RequestLogger(url, {
-      method: "post",
+      method: 'post',
       logRequestHeaders: true,
       logRequestBody: true,
       stringifyRequestBody: true,
