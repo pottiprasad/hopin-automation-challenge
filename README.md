@@ -48,7 +48,7 @@ POST
 ###### Test cases
 
 | Test case | Pass/Fail |
-
+| :--------------------- | :--------------------------------------------------------------: |
 | Verify response schema when you make POST request with correct name | :white_check_mark:|
 | Verify response status code when you make POST request with correct name | :white_check_mark:|
 | Verify name and timestamp in response when you make a POST request wtih correct name | :white_check_mark:|
@@ -58,3 +58,9 @@ POST
 | Verify response status code (400) when I make a POST request with empty body | :white_check_mark:|
 
 ## Project structure:
+
+
+<img width="654" alt="Screenshot 2021-08-29 at 19 41 18" src="https://user-images.githubusercontent.com/3956829/131264203-a35e6b32-3b54-4c0b-bae1-ce861b123c3c.png">
+
+
+
