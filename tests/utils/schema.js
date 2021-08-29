@@ -17,10 +17,17 @@ const customersSchema = Joi.object().keys({
   customers: Joi.array().items(customerSchema),
 })
 
+/**
+ * Returns a schema based on request
+ * @param {string} name 
+ * @returns 
+ */
 const getSchema = (name) => {
   switch (name) {
     case "customers":
       return customersSchema;
+    default:
+      throw new Error('Schema not available, please extend it')
   }
 };
 
