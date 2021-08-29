@@ -1,0 +1,5 @@
+{
+  "backendURL": "http://localhost:3001",
+  "frontendURL": "http://localhost:3000",
+  "appUser": "Yugandhar Prasad Potti"
+}
