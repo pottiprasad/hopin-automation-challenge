@@ -1,5 +1,4 @@
-import { Selector, RequestMock, RequestLogger, t } from "testcafe";
-import customerDetails from "../pages/customerDetailsPage";
+import { RequestMock, RequestLogger } from "testcafe";
 import axios from "axios";
 
 module.exports = {
