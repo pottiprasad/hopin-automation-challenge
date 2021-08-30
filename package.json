@@ -15,7 +15,9 @@
     "start:backend": "yarn workspace backend run start",
     "tests:frontend": "yarn start:frontend & yarn start:backend & testcafe chrome:headless,firefox:headless tests/ui-tests/",
     "tests:backend": "testcafe chrome:headless tests/api-tests/",
-    "tests:backend:local": "yarn start:backend & testcafe chrome:headless tests/api-tests/"
+    "tests:backend:local": "yarn start:backend & testcafe chrome:headless tests/api-tests/",
+    "tests:frontend:reports": "yarn start:frontend & yarn start:backend & testcafe chrome:headless,firefox:headless tests/ui-tests/ --reporter html:./reports/frontend.html",
+    "tests:backend:reports": "yarn start:backend & testcafe chrome:headless tests/api-tests/ --reporter html:./reports/backend.html"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -23,6 +25,7 @@
     "config": "^3.3.6",
     "joi": "^17.4.2",
     "prettier": "2.3.2",
-    "testcafe": "^1.15.3"
+    "testcafe": "^1.15.3",
+    "testcafe-reporter-html": "^1.4.6"
   }
 }

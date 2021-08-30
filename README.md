@@ -115,3 +115,19 @@ I've used `testcafe` to write frontend tests, we have UI tests for all 3 screens
 ## Test results:
 
 Please find here -- https://app.travis-ci.com/github/pottiprasad/hopin-automation-challenge/builds
+
+## Run tests and generate reports locallay:
+
+1. To run frontend tests and generate reports locally, please use
+
+```
+yarn tests:frontend:reports
+```
+
+2. To run backend tests and generate reports locally, please use
+
+```
+yarn tests:frontend:reports
+```
+
+Reports will store in local system under folder called `reports`.
