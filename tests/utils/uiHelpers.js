@@ -8,15 +8,15 @@ module.exports = {
    */
   async isCustomerContactDetailsElementsVisible() {
     await t
-      .expect(customerDetails.customerDetailsHeading.visible)
+      .expect(customerDetails.elements.customerDetailsHeading.visible)
       .ok('Customer details heading is not visible')
-      .expect(customerDetails.customerDetailsName.visible)
+      .expect(customerDetails.elements.customerDetailsName.visible)
       .ok('Customer details name is not visible')
-      .expect(customerDetails.customerDetailsEmployees.visible)
+      .expect(customerDetails.elements.customerDetailsEmployees.visible)
       .ok('Customer details employees are not visible')
-      .expect(customerDetails.customerDetailsSize.visible)
+      .expect(customerDetails.elements.customerDetailsSize.visible)
       .ok('Customer company size not visible')
-      .expect(customerDetails.customerContact.visible)
+      .expect(customerDetails.elements.customerContact.visible)
       .ok('Customer contact information not visible');
   },
 };

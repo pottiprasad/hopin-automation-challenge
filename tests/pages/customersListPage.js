@@ -1,17 +1,19 @@
 import { Selector as $ } from 'testcafe';
 
 module.exports = {
-  greetingMessage: $('#greeting'),
-  customersListTable: $('#customers-list'),
-  customerDetails: (index) =>
+  elements: {
+    greetingMessage: $('#greeting'),
+    customersListTable: $('#customers-list'),
+    customerDetails: (index) =>
     $('#customers-list').find('tr').nth(index).find('td').find('a'),
-
+  },
+  
   /**
    * Checks if greeting message displayed or not
    * @return {bool}
    */
   async isInformationDisplayed() {
-    return await this.greetingMessage.exists;
+    return await this.elements.greetingMessage.exists;
   },
 
   /**
@@ -19,7 +21,7 @@ module.exports = {
    * @return {string}
    */
   async getInformation() {
-    return await this.greetingMessage.innerText;
+    return await this.elements.greetingMessage.innerText;
   },
 
   /**
@@ -27,7 +29,7 @@ module.exports = {
    * @return {bool}
    */
   async isCustomersInformationDisplayed() {
-    return await this.customersListTable.exists;
+    return await this.elements.customersListTable.exists;
   },
 
   /**
@@ -36,7 +38,7 @@ module.exports = {
    */
   async getCustomerCountFromUI() {
     //Reducing length of 1 for headers in table
-    return (await this.customersListTable.find('tr').count) - 1;
+    return (await this.elements.customersListTable.find('tr').count) - 1;
   },
 
   /**
@@ -44,7 +46,7 @@ module.exports = {
    * @return {string}
    */
   async customerTable() {
-    return this.customersListTable.addCustomMethods({
+    return this.elements.customersListTable.addCustomMethods({
       getRowText: (table, rowIndex) => {
         return table.rows[rowIndex].innerText;
       },

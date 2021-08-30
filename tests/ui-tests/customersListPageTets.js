@@ -16,15 +16,15 @@ const requestLogger = apiHelpers.getRequestLogger(serviceURL);
 
 fixture`Customers list Screen`.page`${url}`.beforeEach(async (t) => {
   await t
-    .typeText(welcomePage.nameField, customersAppUser)
-    .click(welcomePage.formSubmit);
-  await customersListPage.customersListTable.with({ visibilityCheck: true })();
+    .typeText(welcomePage.elements.nameField, customersAppUser)
+    .click(welcomePage.elements.formSubmit);
+  await customersListPage.elements.customersListTable.with({ visibilityCheck: true })();
 });
 
 test('I should see my name and current date in greeting message ', async (t) => {
   const expectedMessage = `Hi ${customersAppUser}. It is now ${new Date().toDateString()} 
           and here is our customer list. Click on each of them to view their contact details.`;
-  await customersListPage.greetingMessage.withExactText(
+  await customersListPage.elements.greetingMessage.withExactText(
     expectedMessage,
     'Greeting message is not matched'
   );
@@ -32,7 +32,7 @@ test('I should see my name and current date in greeting message ', async (t) => 
 
 test('I will be presented with a customer list table', async (t) => {
   await t
-    .expect(await customersListPage.customersListTable.exists)
+    .expect(await customersListPage.elements.customersListTable.exists)
     .ok('customer list table is not displayed');
 });
 

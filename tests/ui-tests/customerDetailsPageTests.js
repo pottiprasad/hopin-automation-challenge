@@ -18,9 +18,9 @@ const requestLogger = apiHelpers.getRequestLogger(serviceURL);
 
 fixture`Customer details screen`.page`${url}`.beforeEach(async (t) => {
   await t
-    .typeText(welcomePage.nameField, customerAppUser)
-    .click(welcomePage.formSubmit);
-  await customersListPage.customersListTable.with({ visibilityCheck: true })();
+    .typeText(welcomePage.elements.nameField, customerAppUser)
+    .click(welcomePage.elements.formSubmit);
+  await customersListPage.elements.customersListTable.with({ visibilityCheck: true })();
 });
 
 test.requestHooks(requestLogger)(
@@ -32,7 +32,7 @@ test.requestHooks(requestLogger)(
     );
     if (customerCount > 1) {
       for (let i = 0; i < customerCount; i++) {
-        await t.click(await customersListPage.customerDetails(i + 1));
+        await t.click(await customersListPage.elements.customerDetails(i + 1));
         await uihelpers.isCustomerContactDetailsElementsVisible();
         if (customerFromFeed[i].contactInfo) {
           await t

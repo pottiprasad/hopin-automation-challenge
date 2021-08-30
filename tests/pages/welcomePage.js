@@ -1,9 +1,11 @@
 import { Selector as $, t } from 'testcafe';
 
 module.exports = {
-  welcomeHeading: $('#welcome'),
-  nameField: $('#name'),
-  formSubmit: $('#form-submit'),
+  elements: {
+    welcomeHeading: $('#welcome'),
+    nameField: $('#name'),
+    formSubmit: $('#form-submit'),
+  },
 
   /**
    * test if welcome heading exists
@@ -11,7 +13,7 @@ module.exports = {
    * @return {bool}
    */
   async isHeadingExists(heading) {
-    return await this.welcomeHeading.withText(heading).exists;
+    return await this.elements.welcomeHeading.withText(heading).exists;
   },
 
   /**
@@ -20,7 +22,7 @@ module.exports = {
    * return dialouge history object
    */
   async submitFormWithoutName() {
-    await t.setNativeDialogHandler(() => true).click(this.formSubmit);
+    await t.setNativeDialogHandler(() => true).click(this.elements.formSubmit);
     return await t.getNativeDialogHistory();
   },
 };
