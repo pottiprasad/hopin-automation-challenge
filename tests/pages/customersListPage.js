@@ -5,9 +5,9 @@ module.exports = {
     greetingMessage: $('#greeting'),
     customersListTable: $('#customers-list'),
     customerDetails: (index) =>
-    $('#customers-list').find('tr').nth(index).find('td').find('a'),
+      $('#customers-list').find('tr').nth(index).find('td').find('a'),
   },
-  
+
   /**
    * Checks if greeting message displayed or not
    * @return {bool}

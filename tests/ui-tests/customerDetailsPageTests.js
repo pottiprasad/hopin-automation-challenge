@@ -20,7 +20,9 @@ fixture`Customer details screen`.page`${url}`.beforeEach(async (t) => {
   await t
     .typeText(welcomePage.elements.nameField, customerAppUser)
     .click(welcomePage.elements.formSubmit);
-  await customersListPage.elements.customersListTable.with({ visibilityCheck: true })();
+  await customersListPage.elements.customersListTable.with({
+    visibilityCheck: true,
+  })();
 });
 
 test.requestHooks(requestLogger)(

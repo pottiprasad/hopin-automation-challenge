@@ -10,7 +10,7 @@ module.exports = {
     customerContact: $('#customer-contact'),
     backToList: $('#back-to-customers-list'),
   },
-  
+
   /**
    * @returns customer contact informaiton from UI
    */

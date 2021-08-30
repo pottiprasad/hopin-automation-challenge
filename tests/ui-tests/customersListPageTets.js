@@ -18,7 +18,9 @@ fixture`Customers list Screen`.page`${url}`.beforeEach(async (t) => {
   await t
     .typeText(welcomePage.elements.nameField, customersAppUser)
     .click(welcomePage.elements.formSubmit);
-  await customersListPage.elements.customersListTable.with({ visibilityCheck: true })();
+  await customersListPage.elements.customersListTable.with({
+    visibilityCheck: true,
+  })();
 });
 
 test('I should see my name and current date in greeting message ', async (t) => {
