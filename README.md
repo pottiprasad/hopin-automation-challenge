@@ -134,7 +134,8 @@ Reports will store in local system under folder called `reports`.
 
 ###### Sample Reports:
 
-<img width="1904" alt="Screenshot 2021-08-30 at 11 08 29" src="https://user-images.githubusercontent.com/3956829/131324168-5b017111-9859-4757-b874-bd8d721ba4e3.png">
+<img width="1904" alt="Screenshot 2021-08-30 at 11 19 06" src="https://user-images.githubusercontent.com/3956829/131324809-f5435eed-75d5-4174-b44e-140fcd89c785.png">
 
-<img width="1904" alt="Screenshot 2021-08-30 at 11 08 25" src="https://user-images.githubusercontent.com/3956829/131324184-36c48994-0de6-4dd5-8c00-02f27897080c.png">
+<img width="1904" alt="Screenshot 2021-08-30 at 11 19 08" src="https://user-images.githubusercontent.com/3956829/131324825-32c0682e-c4a4-46ec-a7ae-3fa18cc6e498.png">
+
 
