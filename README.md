@@ -21,7 +21,7 @@
 
 if you run above commands one after another, you might see some errors with port being used by some other process. To make sure your ports are free, please run below command `(lsof -ti:3000,3001) | xargs kill >/dev/null`
 
-On CI, first it runs in below order
+On CI, runs in below order
 
 1. `yarn tests:frontend` -- starts backend, frontend services and following that runs frontend tests
 2. `yarn tests:backend` -- runs only backend tests (backend service started by above command).
@@ -52,11 +52,11 @@ On CI, first it runs in below order
 | Contacts Detail Screen | I should see a message like _no contact information available_ if contact details are not available    |                        :white_check_mark:                        |
 | Contacts Detail Screen | I should see and click on _Back to the list_ button                                                    |                        :white_check_mark:                        |
 
-###### Changes I made in frontend
+## Changes I made in frontend
 
-1. Add id's for UI elements (link)[https://github.com/pottiprasad/hopin-automation-challenge/blob/main/frontend/src/App.js]
+1. Add id's for UI elements [link](https://github.com/pottiprasad/hopin-automation-challenge/blob/main/frontend/src/App.js)
 2. Add method [getContactText](https://github.com/pottiprasad/hopin-automation-challenge/blob/926b866db887ab3d8e6bd081f32a1b13b18775fd/frontend/src/App.js#L39) to check contactInfo object exists in feed.
-3. Above method is in use [here] (https://github.com/pottiprasad/hopin-automation-challenge/blob/926b866db887ab3d8e6bd081f32a1b13b18775fd/frontend/src/App.js#L113)
+3. Above method is in use [here](https://github.com/pottiprasad/hopin-automation-challenge/blob/926b866db887ab3d8e6bd081f32a1b13b18775fd/frontend/src/App.js#L113)
 
 ## Test plan for backend API:
 
@@ -86,7 +86,7 @@ POST
 | Verify response status code (400) when I make a POST request with incorrect variables in request body | :white_check_mark: |
 | Verify response status code (400) when I make a POST request with empty body                          | :white_check_mark: |
 
-###### Changes I made in backend
+## Changes I made in backend
 
 1. Check if name name key exists in request [body] (https://github.com/pottiprasad/hopin-automation-challenge/blob/926b866db887ab3d8e6bd081f32a1b13b18775fd/backend/server.js#L64)
 2. Add additional condition to check number of employees in a [medium] (https://github.com/pottiprasad/hopin-automation-challenge/blob/926b866db887ab3d8e6bd081f32a1b13b18775fd/backend/server.js#L56) company
@@ -131,3 +131,11 @@ yarn tests:frontend:reports
 ```
 
 Reports will store in local system under folder called `reports`.
+
+###### Sample Reports:
+
+<img width="1904" alt="Screenshot 2021-08-30 at 11 19 06" src="https://user-images.githubusercontent.com/3956829/131324809-f5435eed-75d5-4174-b44e-140fcd89c785.png">
+
+<img width="1904" alt="Screenshot 2021-08-30 at 11 19 08" src="https://user-images.githubusercontent.com/3956829/131324825-32c0682e-c4a4-46ec-a7ae-3fa18cc6e498.png">
+
+
